@@ -17,20 +17,25 @@ import java.util.Set;
 public class TestAPI {
 
     public static void main(String[] args) {
-        Jedis jedis=new Jedis("123.56.9.64",6379);
-        System.out.println(jedis.auth("zhangbiao"));
+        Jedis jedis=new Jedis("主机IP",6379);
+        //redis密码（如果配置文件中没有添加安全认证，可以忽略）
+        System.out.println(jedis.auth("******"));
+        //检查是否连接成功 返回PONG代表成功  其他失败
         System.out.println(jedis.ping());
 
+        //String 类型
         //mset mget
         /*jedis.mset("k1","v1","k2","v2","k3","v3");
         System.out.println(jedis.mget("k1","k2","k3"));*/
 
+        //list类型
         //list
         /*jedis.lpush("list01","1","2","3","4","5");
         List<String> lists = jedis.lrange("list01", 0, -1);
         for(String str:lists){
             System.out.println(str);
         }*/
+
 
 
         //map
